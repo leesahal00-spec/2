@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>100 Days Together — Rijuu 💜</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #a29bfe; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 25px;
+            width: 85%;
+            max-width: 320px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+
+        .moon { font-size: 35px; margin-bottom: 5px; }
+        h1 { color: #6c5ce7; font-size: 24px; margin: 5px 0; }
+        
+        .date-box {
+            background: #f0edff;
+            padding: 8px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 13px;
+            color: #6c5ce7;
+            margin: 15px 0;
+            border: 1px solid #dcd6ff;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            background: #6c5ce7;
+            color: white;
+            padding: 14px;
+            border-radius: 30px;
+            font-weight: bold;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* The Big Message Styling */
+        .big-message {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+            text-align: left;
+            margin: 15px 0;
+            padding: 10px;
+            background: #fafafa;
+            border-radius: 15px;
+        }
+
+        #secret {
+            display: none; 
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        #saranghae-display {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 45px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 15px #6c5ce7;
+            z-index: 100;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+        #saranghae-display.show { transform: translate(-50%, -50%) scale(1); }
+    </style>
+</head>
+<body>
+
+    <div id="saranghae-display">Saranghae 🫶🏼</div>
+
+    <div class="card">
+        <div class="moon">🌙</div>
+        <h1>100 Days!</h1>
+        <div class="date-box">Sept 27, 2025 — Jan 4, 2026</div>
+
+        <iframe id="music-player" 
+            src="https://www.youtube.com/embed/x1tAVUAs4Kc?start=45&enablejsapi=1&autoplay=1&mute=1" 
+            width="0" height="0" frameborder="0" allow="autoplay"></iframe>
+
+        <button class="btn" id="startBtn">💜 Click me 💜</button>
+
+        <div id="secret">
+            <div class="big-message">
+                Hi Rijuu 😚,<br><br>
+                Happy 100 days! I am so happy that you are in my life. These 100 days have been full of smiles because of you. <br><br>
+                Thank you for being so kind and for always making me feel special. I really enjoy every moment we spend together. <br><br>
+                I want to stay by your side for a very long time. I choose you today, and I will choose you every day.
+            </div>
+            
+            <button class="btn" id="sarangBtn" style="background: #a29bfe;">✨ Tap for a surprise</button>
+        </div>
+    </div>
+
+    <script>
+        const startBtn = document.getElementById('startBtn');
+        const sarangBtn = document.getElementById('sarangBtn');
+        const secret = document.getElementById('secret');
+        const iframe = document.getElementById('music-player');
+        const sarangDisplay = document.getElementById('saranghae-display');
+
+        startBtn.addEventListener('click', () => {
+            iframe.src = iframe.src.replace('mute=1', 'mute=0');
+            secret.style.display = 'block';
+            startBtn.style.display = 'none';
+        });
+
+        sarangBtn.addEventListener('click', () => {
+            sarangDisplay.classList.add('show');
+            setTimeout(() => sarangDisplay.classList.remove('show'), 2000);
+        });
+    </script>
+</body>
+</html>
